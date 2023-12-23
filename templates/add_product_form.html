@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Your Website Name</h1>
+    </header>
+
+    <main>
+     <!-- Your HTML template with a form -->
+    <form method="post" action="{% url 'add_product' %}"
+          enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="description">Description:</label>
+        <textarea name="description" required></textarea><br>
+
+        <label for="price">Price:</label>
+        <input type="number" name="price" required><br>
+
+        <label for="category">Category:</label>
+        <select name="category" required>
+            <option value="EC">Op1: Electronics</option>
+            <option value="CL">Op2: Clothing</option>
+            <option value="BK">Op3: Books</option>
+        <!-- Add more options as needed -->
+        </select><br>
+
+        <label for="price">In stock:</label>
+        <input type="number" name="in_stock" required><br>
+
+        <label for="image">Image:</label>
+        <input type="file" name="image" required><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function signOut() {
+            // Add your sign-out logic here
+            alert('You have been signed out.');
+        }
+    </script>
+
+</body>
+
+</html>
